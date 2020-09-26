@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btOrderClick(View view) {
-
-
         int selectedId = ((RadioGroup)findViewById(R.id.rgPizzaSizes)).getCheckedRadioButtonId();
         System.out.println(selectedId);
         String pizza = "You ordered a " + ((RadioButton)findViewById(selectedId)).getText();
