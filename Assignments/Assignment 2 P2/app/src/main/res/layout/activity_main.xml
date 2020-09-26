@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/T1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="122dp"
+        android:layout_marginBottom="96dp"
+        android:text="Order Your Pizza"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/T2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/T2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="14dp"
+        android:text="Choose Toppings and a Size"
+        app:layout_constraintBottom_toTopOf="@+id/cbCheese"
+        app:layout_constraintEnd_toEndOf="@+id/cbPepperoni"
+        app:layout_constraintTop_toBottomOf="@+id/T1" />
+
+    <CheckBox
+        android:id="@+id/cbCheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="11dp"
+        android:text="Cheese"
+        app:layout_constraintBottom_toTopOf="@+id/rgPizzaSizes"
+        app:layout_constraintEnd_toStartOf="@+id/cbPepperoni"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/T2" />
+
+    <CheckBox
+        android:id="@+id/cbPepperoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="Pepperoni"
+        app:layout_constraintBottom_toTopOf="@+id/rgPizzaSizes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cbCheese" />
+
+    <Button
+        android:id="@+id/btOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:onClick="btOrderClick"
+        android:text="Order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgPizzaSizes" />
+
+    <RadioGroup
+        android:id="@+id/rgPizzaSizes"
+        android:layout_width="248dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="197dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/finalOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbCheese">
+
+        <RadioButton
+            android:id="@+id/btnSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Small"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="360dp" />
+
+        <RadioButton
+            android:id="@+id/btnMedium"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Medium"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="360dp" />
+
+        <RadioButton
+            android:id="@+id/btnLarge"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Large"
+            tools:layout_editor_absoluteX="253dp"
+            tools:layout_editor_absoluteY="360dp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/finalOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="93dp"
+        android:text="Your Pizza Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgPizzaSizes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
