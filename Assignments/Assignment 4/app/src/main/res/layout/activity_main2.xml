@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:id="@+id/textViewTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Employee Management Tool"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewHomeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="139dp"
+        android:layout_marginBottom="136dp"
+        android:text="name"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeShowUser"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeShowUser"
+        app:layout_constraintTop_toTopOf="@+id/textViewTitle2" />
+
+    <Button
+        android:id="@+id/buttonHomeAddUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="15dp"
+        android:text="Add User"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeDeleteUser"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeDeleteUser" />
+
+    <Button
+        android:id="@+id/buttonHomeShowUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="17dp"
+        android:text="Show All"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeAddUser"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeDeleteUser" />
+
+    <Button
+        android:id="@+id/buttonHomeDeleteUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="242dp"
+        android:text="Delete User"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
