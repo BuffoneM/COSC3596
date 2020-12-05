@@ -1,6 +1,5 @@
 package com.example.assignment4
 
-import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*;
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var db: SQLiteDatabase
 
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadDatabase() {
-        db = openOrCreateDatabase("loginInformation", Context.MODE_PRIVATE, null)
+        db = openOrCreateDatabase("loginInformation", MODE_PRIVATE, null)
 
         // Create the user table
         db.execSQL("DROP TABLE IF EXISTS users")
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         // Insert valid login credentials
         db.execSQL("INSERT INTO users VALUES('admin', '1234')")
-        db.execSQL("INSERT INTO users VALUES('admin2', '12345')")
 
     }
 
@@ -41,12 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         println(username + " " + password)
 
-        val query = "SELECT * FROM users WHERE username = " + username + " AND password = " + password
+        val query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"
 
         val cursor = db.rawQuery(query, null)
 
         if(cursor.moveToFirst()) {
-            val intent = Intent(this, MainActivity2::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("Username", username)
             Toast.makeText(this, "Successful Login!", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    android:onClick="btShowAllPress"
+    tools:context=".HomeActivity">
 
     <TextView
         android:id="@+id/textViewTitle2"
@@ -23,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="139dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="137dp"
+        android:gravity="center"
         android:text="name"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonHomeShowUser"
@@ -46,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="17dp"
+        android:onClick="btShowAllPress"
         android:text="Show All"
         app:layout_constraintBottom_toTopOf="@+id/buttonHomeAddUser"
         app:layout_constraintStart_toStartOf="@+id/buttonHomeDeleteUser" />
@@ -54,9 +57,10 @@
         android:id="@+id/buttonHomeDeleteUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="242dp"
+        android:layout_marginBottom="241dp"
         android:text="Delete User"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
