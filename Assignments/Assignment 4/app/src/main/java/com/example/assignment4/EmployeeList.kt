@@ -14,29 +14,20 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.openOrCreateDatabase
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main2.*
+import java.util.*
 
 class EmployeeList : ListFragment() {
 
-    private var db: SQLiteDatabase = (activity as HomeActivity).loadDatabase()
     private val myArray = arrayOf("Red", "Chuck", "Matilda")
 
     override fun onActivityCreated(savedState: Bundle?) {
         super.onActivityCreated(savedState)
 
-        // Get the ArrayList of employees
-        /*
-        val empList = ArrayList<String>()
-        val query = "SELECT * FROM employees"
-        val cursor = db.rawQuery(query, null)
+        val intent = activity!!.intent
+        val array = intent.getStringArrayExtra("empArray")
 
-        if (cursor.moveToFirst()) {
-            do {
-                for (i in 0 until cursor.columnCount) {
-                    empList.add(cursor.getString(i))
-                }
-            } while (cursor.moveToNext())
-        }
-*/
+        println("Within EmployeeList, the array is: " + Arrays.toString(array))
+
         val myAdapter = ArrayAdapter(
                 activity!!,
                 android.R.layout.simple_list_item_1,

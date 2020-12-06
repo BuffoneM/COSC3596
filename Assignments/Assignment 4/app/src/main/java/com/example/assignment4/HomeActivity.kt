@@ -73,6 +73,21 @@ class HomeActivity : AppCompatActivity() {
     fun btShowAllPress(view: View) {
         val intent = Intent(this, DisplayUsersActivity::class.java)
 
+        val empList = ArrayList<String>()
+        val query = "SELECT * FROM employees"
+        val cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                for (i in 0 until cursor.columnCount) {
+                    empList.add(cursor.getString(i))
+                }
+            } while (cursor.moveToNext())
+        }
+
+        var tempArray = arrayOfNulls<String>(empList.size)
+        intent.putExtra("empList", empList.toArray(tempArray))
+
         startActivity(intent)
     }
 

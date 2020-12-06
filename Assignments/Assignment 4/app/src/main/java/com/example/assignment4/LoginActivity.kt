@@ -37,8 +37,6 @@ class LoginActivity : AppCompatActivity() {
         var username = editTextUsername.text.toString()
         var password = editTextTextPassword.text.toString()
 
-        println(username + " " + password)
-
         val query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"
         val cursor = db.rawQuery(query, null)
 
