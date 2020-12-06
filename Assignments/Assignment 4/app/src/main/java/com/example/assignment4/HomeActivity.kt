@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -27,38 +28,18 @@ class HomeActivity : AppCompatActivity() {
         // Welcoming message
         textViewHomeName.setText("Hello " + intent.getStringExtra("Username"))
 
-        // On show button press
-        buttonHomeShowUser.setOnClickListener {
-            val bundle = Bundle()
-            val myFragment = EmployeeList()
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-
-            // Get all of the data from the database and put it in a String array
-            val empList = ArrayList<String>()
-            val query = "SELECT * FROM employees"
-            val cursor = db.rawQuery(query, null)
-
-            if (cursor.moveToFirst()) {
-                do {
-                    for (i in 0 until cursor.columnCount) {
-                        empList.add(cursor.getString(i))
-                    }
-                } while (cursor.moveToNext())
-            }
-
-            bundle.putStringArrayList("EmployeeList", empList)
-            myFragment.arguments = bundle
-            fragmentTransaction.add(R.id.frameLayout, myFragment).commit()
-        }
-
         // On add button press
         buttonHomeAddUser.setOnClickListener {
             btAddUserPress()
         }
+
+        // On delete button press
+        buttonHomeDeleteUser.setOnClickListener {
+            btDeleteUserPress()
+        }
     }
 
-    private fun loadDatabase() {
+    fun loadDatabase() : SQLiteDatabase {
         db = openOrCreateDatabase("employeeNames", MODE_PRIVATE, null)
 
         // Create the employee table
@@ -70,17 +51,36 @@ class HomeActivity : AppCompatActivity() {
         db.execSQL("INSERT INTO employees VALUES('Chuck')")
         db.execSQL("INSERT INTO employees VALUES('Matilda')")
 
-
+        return db
     }
 
-    fun btShowAllPress() {
+    fun printDatabase() {
+        val empList = ArrayList<String>()
+        val query = "SELECT * FROM employees"
+        val cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                for (i in 0 until cursor.columnCount) {
+                    empList.add(cursor.getString(i))
+                }
+            } while (cursor.moveToNext())
+        }
+
+        println("The database is: " + empList)
+    }
+
+    fun btShowAllPress(view: View) {
         val intent = Intent(this, DisplayUsersActivity::class.java)
+
         startActivity(intent)
     }
 
     fun btAddUserPress() {
         val context = this
         val builder = MaterialAlertDialogBuilder(context)
+
+        println("Add button pressed...")
 
         // dialog title
         builder.setTitle("Enter the employee's name:")
@@ -95,11 +95,52 @@ class HomeActivity : AppCompatActivity() {
 
         builder.setPositiveButton("Add") { dialog, which ->
             val name = textInputEditText.text
-
+            db.execSQL("INSERT INTO employees VALUES('$name')")
+            Toast.makeText(this, "Added the user: " + name, Toast.LENGTH_SHORT).show()
 
         }
 
+        printDatabase()
+
         // Display the dialog
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    fun btDeleteUserPress() {
+        val context = this
+        val builder = MaterialAlertDialogBuilder(context)
+
+        println("Delete button pressed...")
+
+        // dialog title
+        builder.setTitle("Enter the employee's name:")
+        builder.setNeutralButton("Cancel", null)
+        builder.setCancelable(false)
+
+        // dialog message view
+        val constraintLayout = getEditTextLayout(context)
+        builder.setView(constraintLayout)
+
+        val textInputEditText = constraintLayout.findViewWithTag<TextInputEditText>("textInputEditTextTag")
+
+        builder.setPositiveButton("Add") { dialog, which ->
+            val inputName = textInputEditText.text
+
+            val query = "SELECT * FROM employees WHERE name = '$inputName'"
+            val cursor = db.rawQuery(query, null)
+
+            if(cursor.moveToFirst()) {
+                db.execSQL("DELETE FROM employees WHERE name = '$inputName'")
+                Toast.makeText(this, "Successfully deleted: " + inputName, Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(this, "" + inputName + " is not found!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        printDatabase()
+
         val dialog = builder.create()
         dialog.show()
     }

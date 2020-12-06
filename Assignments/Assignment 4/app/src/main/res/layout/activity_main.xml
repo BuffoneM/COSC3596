@@ -48,6 +48,7 @@
         android:ems="10"
         android:hint="admin"
         android:inputType="textPersonName"
+        android:text="admin"
         app:layout_constraintBottom_toTopOf="@+id/textViewPassword"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -60,6 +61,7 @@
         android:ems="10"
         android:hint="1234"
         android:inputType="textPassword"
+        android:text="1234"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 

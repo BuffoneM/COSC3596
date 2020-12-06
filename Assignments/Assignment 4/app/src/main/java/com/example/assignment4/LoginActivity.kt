@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         println(username + " " + password)
 
         val query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"
-
         val cursor = db.rawQuery(query, null)
 
         if(cursor.moveToFirst()) {

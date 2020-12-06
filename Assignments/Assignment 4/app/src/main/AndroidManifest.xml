@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment4">
-        <activity android:name=".DisplayUsersActivity"></activity>
+        <activity android:name=".ShowAllActivity"></activity>
+        <activity android:name=".DisplayUsersActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
