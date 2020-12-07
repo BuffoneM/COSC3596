@@ -12,6 +12,9 @@ import android.content.Intent
 import android.content.Intent.getIntent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.openOrCreateDatabase
+import android.text.Layout
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main2.*
 import java.util.*
@@ -20,11 +23,17 @@ class EmployeeList : ListFragment() {
 
     private val myArray = arrayOf("Red", "Chuck", "Matilda")
 
+    fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle) {
+        val array = this.arguments!!.getStringArray("empArray")
+        println("Within EmployeeList, the array is: " + Arrays.toString(array))
+    }
+
+
     override fun onActivityCreated(savedState: Bundle?) {
         super.onActivityCreated(savedState)
 
-        val intent = activity!!.intent
-        val array = intent.getStringArrayExtra("empArray")
+        val bundle = arguments
+        val array = bundle!!.getStringArray("empArray")
 
         println("Within EmployeeList, the array is: " + Arrays.toString(array))
 

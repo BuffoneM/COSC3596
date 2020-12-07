@@ -93,7 +93,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun btAddUserPress() {
         val context = this
-        val builder = MaterialAlertDialogBuilder(context)
+        val builder = MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_MaterialComponents_Light)
 
         println("Add button pressed...")
 

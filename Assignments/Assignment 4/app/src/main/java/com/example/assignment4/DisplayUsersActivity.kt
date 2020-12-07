@@ -10,12 +10,16 @@ class DisplayUsersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
-        val empIntent = Intent(this, EmployeeList::class.java)
         val array = intent.getStringArrayExtra("empList")
-
         println("Within DisplayUsers, the array is: " + Arrays.toString(array))
-        empIntent.putExtra("empArray", array)
 
+        val bundle = Bundle()
+        val myFragment = EmployeeList()
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        bundle.putStringArray("empArray", array)
+        myFragment.arguments = bundle
+        fragmentTransaction.add(R.id.frameLayout, myFragment).commit()
     }
 
 }
