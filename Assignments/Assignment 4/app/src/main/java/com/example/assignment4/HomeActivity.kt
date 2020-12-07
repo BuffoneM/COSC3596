@@ -47,9 +47,9 @@ class HomeActivity : AppCompatActivity() {
         db.execSQL("CREATE TABLE employees (name VARCHAR(32))")
 
         // Insert names
-        db.execSQL("INSERT INTO employees VALUES('Red')")
-        db.execSQL("INSERT INTO employees VALUES('Chuck')")
-        db.execSQL("INSERT INTO employees VALUES('Matilda')")
+        db.execSQL("INSERT INTO employees VALUES('UserA')")
+        db.execSQL("INSERT INTO employees VALUES('UserB')")
+        db.execSQL("INSERT INTO employees VALUES('UserC')")
 
     }
 

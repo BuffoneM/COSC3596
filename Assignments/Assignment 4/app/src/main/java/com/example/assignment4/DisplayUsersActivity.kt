@@ -12,9 +12,10 @@ class DisplayUsersActivity : AppCompatActivity() {
 
         val array = intent.getStringArrayExtra("empList")
         println("Within DisplayUsers, the array is: " + Arrays.toString(array))
+        println("Now passing \"" + Arrays.toString(array) + "\" to the fragment...")
 
         val bundle = Bundle()
-        bundle.putString("empArray", "asdfghyuuyguyuyggyu")
+        bundle.putString("empArray", "testing string instead of array")
         val fragObj = EmployeeList()
         fragObj.arguments = bundle
 

@@ -21,7 +21,7 @@ import java.util.*
 
 class EmployeeList : ListFragment() {
 
-    private val myArray = arrayOf("Redtrftrfftrtfr", "Chuck", "Matilda")
+    private val myArray = arrayOf("Red", "Chuck", "Matilda")
 
     fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle) {
         //val array = this.arguments!!.getStringArray("empArray")
