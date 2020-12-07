@@ -14,12 +14,20 @@ class DisplayUsersActivity : AppCompatActivity() {
         println("Within DisplayUsers, the array is: " + Arrays.toString(array))
 
         val bundle = Bundle()
+        bundle.putString("empArray", "asdfghyuuyguyuyggyu")
+        val fragObj = EmployeeList()
+        fragObj.arguments = bundle
+
+        /*
+        val bundle = Bundle()
         val myFragment = EmployeeList()
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         bundle.putStringArray("empArray", array)
         myFragment.arguments = bundle
         fragmentTransaction.add(R.id.frameLayout, myFragment).commit()
+
+         */
     }
 
 }

@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun loadDatabase() : SQLiteDatabase {
+    fun loadDatabase() {
         db = openOrCreateDatabase("employeeNames", MODE_PRIVATE, null)
 
         // Create the employee table
@@ -51,7 +51,6 @@ class HomeActivity : AppCompatActivity() {
         db.execSQL("INSERT INTO employees VALUES('Chuck')")
         db.execSQL("INSERT INTO employees VALUES('Matilda')")
 
-        return db
     }
 
     fun printDatabase() {

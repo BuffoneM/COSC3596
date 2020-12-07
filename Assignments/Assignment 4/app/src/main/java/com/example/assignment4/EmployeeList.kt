@@ -21,21 +21,22 @@ import java.util.*
 
 class EmployeeList : ListFragment() {
 
-    private val myArray = arrayOf("Red", "Chuck", "Matilda")
+    private val myArray = arrayOf("Redtrftrfftrtfr", "Chuck", "Matilda")
 
     fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle) {
-        val array = this.arguments!!.getStringArray("empArray")
-        println("Within EmployeeList, the array is: " + Arrays.toString(array))
+        //val array = this.arguments!!.getStringArray("empArray")
+        //println("Within EmployeeList, the array is: " + Arrays.toString(array))
+        val array = this.arguments!!.getString("empArray")
+        println("Within EmployeeList, the array is: " + array)
     }
-
 
     override fun onActivityCreated(savedState: Bundle?) {
         super.onActivityCreated(savedState)
 
-        val bundle = arguments
-        val array = bundle!!.getStringArray("empArray")
+        //val bundle = arguments
+        //val array = bundle!!.getStringArray("empArray")
 
-        println("Within EmployeeList, the array is: " + Arrays.toString(array))
+        //println("Within EmployeeList, the array is: " + Arrays.toString(array))
 
         val myAdapter = ArrayAdapter(
                 activity!!,
