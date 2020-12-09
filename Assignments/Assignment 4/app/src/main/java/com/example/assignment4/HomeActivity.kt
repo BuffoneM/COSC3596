@@ -138,7 +138,7 @@ class HomeActivity : AppCompatActivity() {
 
         val textInputEditText = constraintLayout.findViewWithTag<TextInputEditText>("textInputEditTextTag")
 
-        builder.setPositiveButton("Add") { dialog, which ->
+        builder.setPositiveButton("Delete") { dialog, which ->
             val inputName = textInputEditText.text
 
             val query = "SELECT * FROM employees WHERE name = '$inputName'"
@@ -159,6 +159,8 @@ class HomeActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    // I referenced this tutorial on how to create the AlertDialog with editText
+    // https://code-android-example.blogspot.com/2020/03/alertdialog-edittext-android-kotlin.html
     private fun getEditTextLayout(context: Context): ConstraintLayout {
         val constraintLayout = ConstraintLayout(context)
         val layoutParams = ConstraintLayout.LayoutParams(

@@ -25,9 +25,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="78dp"
+        android:layout_marginBottom="90dp"
         android:gravity="center"
         android:text="name"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeDeleteUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,31 +38,31 @@
         android:id="@+id/buttonHomeAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="152dp"
         android:text="Add User"
-        app:layout_constraintStart_toStartOf="@+id/buttonHomeShowUser"
-        app:layout_constraintTop_toBottomOf="@+id/buttonHomeShowUser" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonHomeShowUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginStart="104dp"
         android:onClick="btShowAllPress"
         android:text="Show All"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHomeName" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeAddUser"
+        app:layout_constraintStart_toStartOf="@+id/textViewHomeName"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomeAddUser" />
 
     <Button
         android:id="@+id/buttonHomeDeleteUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginEnd="82dp"
         android:text="Delete User"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonHomeAddUser" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeAddUser"
+        app:layout_constraintEnd_toEndOf="@+id/textViewHomeName"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomeAddUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.example.assignment4
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main3.*
 import java.util.*
 
 class DisplayUsersActivity : AppCompatActivity() {
@@ -15,20 +15,9 @@ class DisplayUsersActivity : AppCompatActivity() {
         println("Now passing \"" + Arrays.toString(array) + "\" to the fragment...")
 
         val bundle = Bundle()
-        bundle.putString("empArray", "testing string instead of array")
-        val fragObj = EmployeeList()
-        fragObj.arguments = bundle
-
-        /*
-        val bundle = Bundle()
-        val myFragment = EmployeeList()
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
         bundle.putStringArray("empArray", array)
-        myFragment.arguments = bundle
-        fragmentTransaction.add(R.id.frameLayout, myFragment).commit()
+        EmployeeListFragment.arguments = bundle
 
-         */
     }
 
 }

@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun btLoginClick(view: View) {
         var username = editTextUsername.text.toString()
-        var password = editTextTextPassword.text.toString()
+        var password = editTextPassword.text.toString()
 
         val query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"
         val cursor = db.rawQuery(query, null)
@@ -44,12 +44,18 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra("Username", username)
             Toast.makeText(this, "Successful Login!", Toast.LENGTH_SHORT).show()
+            clearEditTexts()
             startActivity(intent)
         }
         else {
+            clearEditTexts()
             Toast.makeText(this, "Incorrect Credentials!", Toast.LENGTH_SHORT).show()
         }
     }
 
+    private fun clearEditTexts() {
+        editTextUsername.setText("")
+        editTextPassword.setText("")
+    }
 
 }
